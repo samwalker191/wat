@@ -27,6 +27,24 @@ button {
     border-radius: 2px;
 }
 
+.animate {
+    animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px 5px;
+    }
+
+    50% {
+        box-shadow: 0 0 60px 10px;
+    }
+
+    100% {
+        box-shadow: 0 0 10px 5px;
+    }
+}
+
 button:hover {
     cursor: pointer;
     background: #03e9f4;
@@ -47,86 +65,33 @@ button:active {
     color: #03e9f4;
 }
 
-button span {
-    position: absolute;
-    display: block;
-}
-
-button span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #03e9f4);
-    animation: animate1 1s linear infinite;
-}
-
-@keyframes animate1 {
-    0% {
-        left: -100%;
-    }
-    50%, 100% {
-        left: 100%;
-    }
-}
-
-button span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #03e9f4);
-    animation: animate2 1s linear infinite;
-    animation-delay: 0.25s;
-}
-
-@keyframes animate2 {
-    0% {
-        top: -100%;
-    }
-    50%, 100% {
-        top: 100%;
-    }
-}
-
-button span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, #03e9f4);
-    animation: animate3 1s linear infinite;
-    animation-delay: 0.5s;
-}
-
-@keyframes animate3 {
-    0% {
-        right: -100%;
-    }
-    50%, 100% {
-        right: 100%;
-    }
-}
-
-button span:nth-child(4) {
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #03e9f4);
-    animation: animate4 1s linear infinite;
-    animation-delay: 0.75s;
-}
-
-@keyframes animate4 {
-    0% {
-        bottom: -100%;
-    }
-    50%, 100% {
-        bottom: 100%;
-    }
-}
-
 video {
+    position: absolute;
+}
+
+.slide1 {
+    animation: slide1;
+    animation-duration: 0.5s;
+}
+
+.slide2 {
+    animation: slide1;
+    animation-duration: 0.5s;
+    animation-direction: reverse;
+}
+
+@keyframes slide1 {
+    from {
+        left: 0;
+        transform: rotate(0deg);
+    }
+
+    to {
+        left: calc(50vw - 245px);
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
     display: none;
 }
